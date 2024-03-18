@@ -56,15 +56,15 @@ UTexture2D* APosterClass::LoadTextureFromPath(const FString& FilePath)
     return Texture;
 }
 
-// Called when the game starts or when spawned
-void APosterClass::BeginPlay()
+void APosterClass::ChangeMaterialFromPath(const FString& FilePath)
 {
-	Super::BeginPlay();
-	
     // Load the texture from the path
-    UTexture2D* Texture = LoadTextureFromPath(Path.FilePath);
+    UTexture2D* Texture = LoadTextureFromPath(FilePath);
 
-
+    if (DefaultTexture)
+    {
+        Texture = DefaultTexture;
+    }
 
     if (Texture)
     {
@@ -101,6 +101,14 @@ void APosterClass::BeginPlay()
         // If failed to load texture, print a warning
         UE_LOG(LogTemp, Warning, TEXT("Failed to load texture from path: %s"), *Path.FilePath);
     }
+}
+
+// Called when the game starts or when spawned
+void APosterClass::BeginPlay()
+{
+	Super::BeginPlay();
+	
+    ChangeMaterialFromPath(Path.FilePath);
 }
 
 // Called every frame

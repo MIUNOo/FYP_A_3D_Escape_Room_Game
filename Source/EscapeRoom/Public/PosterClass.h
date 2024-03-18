@@ -28,9 +28,15 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Default")
 	FFilePath Path;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Default")
+	UTexture2D* DefaultTexture;
+
 	// Function to load a PNG image from the specified file path and convert it to a texture
 	UFUNCTION(BlueprintCallable, Category = "Custom")
 	UTexture2D* LoadTextureFromPath(const FString& FilePath);
+
+	UFUNCTION(BlueprintCallable, Category = "Custom")
+	void ChangeMaterialFromPath(const FString& FilePath);
 
 protected:
 	// Called when the game starts or when spawned
