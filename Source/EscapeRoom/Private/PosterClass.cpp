@@ -109,6 +109,7 @@ void APosterClass::BeginPlay()
 	Super::BeginPlay();
 	
     ChangeMaterialFromPath(Path.FilePath);
+
 }
 
 // Called every frame
