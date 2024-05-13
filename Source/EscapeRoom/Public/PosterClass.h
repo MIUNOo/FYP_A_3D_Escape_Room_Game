@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "Materials/MaterialInterface.h" // 包含材质接口的头文件
+#include "Materials/MaterialInterface.h" 
 #include "Engine/Texture2D.h"
 #include "Engine/Texture.h"
 #include "Engine/TextureRenderTarget2D.h"
